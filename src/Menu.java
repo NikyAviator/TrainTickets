@@ -57,6 +57,7 @@ public class Menu {
                 //default choice, ie wrong input, a message and menu() call.
                 System.out.println("Fel intryck!");
                 menu();
+                break;
         }
 
     }
