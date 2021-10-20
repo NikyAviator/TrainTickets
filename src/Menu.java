@@ -85,7 +85,7 @@ public class Menu {
         int destination = input.nextInt();
         String destinationString = stations.getStation(destination);
         System.out.println(destinationString);
-        //we call the first constructor and pass our depature and destination as a String. (a new instance of class
+        //we call the first constructor and pass our departure and destination as a String. (a new instance of class
         //Ticket called ticket).
         Ticket ticket = new Ticket(departureString, destinationString);
         //we return the ticket.
