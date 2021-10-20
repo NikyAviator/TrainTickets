@@ -20,15 +20,17 @@ public class Stations {
             System.out.println((i + 1) + " " + stations.get(i));
         }
     }
+
     //a method that returns the station we chose from the numbers of the stations
     public String getStation(int stationIndex) {
-        for (int i = 0; i < stations.size(); i++) {
-            //we add a 'plus 1' so the digit next to station and the actual station is the same
-            if ((i + 1) == stationIndex) {
-                return stations.get(i);
-            }
+        int stationCorrectedIndex = stationIndex -1;
+        //we check the if the station indexes are 'normal' values
+        boolean stationWithinBounds = ((stationCorrectedIndex ) < stations.size() && (stationCorrectedIndex) >= 0);
+        if (stationWithinBounds) {
+            return stations.get(stationCorrectedIndex);
+        } else {
+            System.out.println("Could not find station! Try from again the beginning.");
+            return null;
         }
-        System.out.println("Could not find station! Try from again the beginning.");
-        return null;
     }
 }
