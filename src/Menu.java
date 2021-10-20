@@ -21,6 +21,12 @@ public class Menu {
                 //We create an instance of class Ticket called ticket that is returned by searchTrip()
                 //searchTrip() method returns a ticket
                 Ticket ticket = searchTrip();
+                // if we mess up the ticket, by for example searching for a station out of bounds, we set the ticket
+                // to null and call main().
+                if (ticket == null) {
+                    menu();
+                    break;
+                }
                 //we also call userAddTraveler and send ticket as an argument.
                 userAddTraveler(ticket);
                 System.out.println("Tips på avgångar: ");
@@ -62,37 +68,42 @@ public class Menu {
 
     }
 
-    /*
+    /**
     A method that we can choose our departure and arrival from.
     We create a new ticket (sending departureString and destinationString as parameters) and we return our ticket,
     where we are departing and arriving.
      */
 
-    //We create a method called searchTrip() that returns instance of class Ticket.
+    // We create a method called searchTrip() that returns instance of class Ticket.
     public Ticket searchTrip() {
         System.out.println("Välj avgång (ange siffra och tryck ENTER): ");
         //we print our stations.
         stations.printStations();
-        //we save our nextInt input as 'departure'
+        // we save our nextInt input as 'departure'
         int departure = input.nextInt();
-        //we create a and save a string that is compared to the number we send as an argument to the getStation method
+        // we create a and save a string that is compared to the number we send as an argument to the getStation method
         String departureString = stations.getStation(departure);
-        //we print from the list the digit we previously sent, so that we can see it as a String which city we are
-        // going from
+        // if our depatureString is out of bounds we return null to our ticket object;
+        if (departureString == null) {
+            return null;
+        }
         System.out.println(departureString);
         System.out.println("Välj destination (ange siffra och tryck ENTER): ");
         stations.printStations();
         int destination = input.nextInt();
         String destinationString = stations.getStation(destination);
+        if (destinationString == null) {
+            return null;
+        }
         System.out.println(destinationString);
-        //we call the first constructor and pass our departure and destination as a String. (a new instance of class
-        //Ticket called ticket).
+        // we call the first constructor and pass our departure and destination as a String. (a new instance of class
+        // Ticket called ticket).
         Ticket ticket = new Ticket(departureString, destinationString);
-        //we return the ticket.
+        // we return the ticket.
         return ticket;
     }
 
-    /*
+    /**
         a method that adds user that wants to travel.
         First it keeps looping depending on how many travelers we input in the console.
         A switch sends the value of 'vuxen', 'barn' etc and return the cost for those types of travelers.
@@ -129,7 +140,7 @@ public class Menu {
 
     }
 
-    /*
+    /**
         this method handles the payment. we put in our money through moneyInput.
         The if-logic handles, if we put in more money than the cost, then we get back the difference.
         If we put in too little money we get a prompt that we put in too little money, the user gets back

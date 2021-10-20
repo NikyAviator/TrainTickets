@@ -9,7 +9,7 @@ public class Filehandler {
     private ArrayList<String> stations;
     private ArrayList<String> avgangar;
 
-    /*
+    /**
     First we create two ArrayLists for our 'stations' + 'avgangar'.
     We create two Bufferreaders (reader) that will read from our two text files: avgangar and stationer
     We embrace both readers with try-catch.
@@ -45,9 +45,10 @@ public class Filehandler {
         }
     }
 
-    //method that writes our ticket to a file (our ticket that we created from the Ticket class)
-    //a boolean returns true if no problem, false if there are problems.
-    //Output stream is used to write the data to a file
+    /** method that writes our ticket to a file (our ticket that we created from the Ticket class)
+    a boolean returns true if no problem, false if there are problems.
+    Output stream is used to write the data to a file*/
+
     public boolean serializeTicket(Ticket ticket) {
         try {
             Path path = Paths.get("src/serialized_tickets.txt");
@@ -63,9 +64,10 @@ public class Filehandler {
         return false;
     }
 
-    //method that decodes the text file into a ticket object, this is our 'kvitto' (receipt)
-    //Input stream is used to read the data from the source file
-    //I used the slides for FileInputStream and ObjectoutputStream and wrapped them in a try catch.
+    /** method that decodes the text file into a ticket object, this is our 'kvitto' (receipt)
+        Input stream is used to read the data from the source file
+        I used the slides for FileInputStream and ObjectoutputStream and wrapped them in a try catch.
+     */
     public Ticket deserializeTicket() {
         try {
             FileInputStream fileIn = new FileInputStream("src/serialized_tickets.txt");
@@ -90,12 +92,12 @@ public class Filehandler {
         }
     }
 
-    //a getter for the stations
+    // a getter for the stations
     public ArrayList<String> getStations() {
         return stations;
     }
 
-    //a getter for the avgångar
+    // a getter for the avgångar
     public ArrayList<String> getAvgangar() {
         return avgangar;
     }
