@@ -69,7 +69,7 @@ public class Menu {
 
     //We create a method called searchTrip() that returns instance of class Ticket.
     public Ticket searchTrip() {
-        System.out.println("Välj avgång: ");
+        System.out.println("Välj avgång (ange siffra och tryck ENTER): ");
         //we print our stations.
         stations.printStations();
         //we save our nextInt input as 'departure'
@@ -79,7 +79,7 @@ public class Menu {
         //we print from the list the digit we previously sent, so that we can see it as a String which city we are
         // going from
         System.out.println(departureString);
-        System.out.println("Välj destination: ");
+        System.out.println("Välj destination (ange siffra och tryck ENTER): ");
         stations.printStations();
         int destination = input.nextInt();
         String destinationString = stations.getStation(destination);
@@ -118,7 +118,10 @@ public class Menu {
                     break;
                 case 3:
                     ticket.setTotalPrice("pension");
+                    break;
                 default:
+                    System.out.println("Fel intryck av resenär, tar tillbaka dig till menyn:");
+                    menu();
                     break;
             }
         }

@@ -70,7 +70,7 @@ public class Filehandler {
         try {
             FileInputStream fileIn = new FileInputStream("src/serialized_tickets.txt");
             ObjectInputStream in = new ObjectInputStream(fileIn);
-            //we read the object ticket and further down we sout it to a 'toString'
+            //we read the object ticket and further down we 'sout' it to a 'toString'
             Ticket ticket = (Ticket) in.readObject();
             in.close();
             fileIn.close();

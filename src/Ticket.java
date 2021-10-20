@@ -77,7 +77,7 @@ public class Ticket implements Serializable{
         return "KVITTO: {" +
                 " Avgång = '" + avgang + '\'' +
                 ", Destination = '" + destination + '\'' +
-                ", TOTAL PRIS= " + totalPrice +" kr" +
+                ", TOTAL PRIS = " + totalPrice +" kr" +
                 ". Antal barn: " + barn + ". Antal vuxna: " + vuxen +
                 ". Antal pensionärer: " + pension +
                 '}';
