@@ -65,7 +65,7 @@ public class Filehandler {
 
     //method that decodes the text file into a ticket object, this is our 'kvitto' (receipt)
     //Input stream is used to read the data from the source file
-    //I used the slides for FileInputStream and ObjectoutputStream and wrapped them in a try catch
+    //I used the slides for FileInputStream and ObjectoutputStream and wrapped them in a try catch.
     public Ticket deserializeTicket() {
         try {
             FileInputStream fileIn = new FileInputStream("src/serialized_tickets.txt");

@@ -28,7 +28,7 @@ public class Stations {
                 return stations.get(i);
             }
         }
-        System.out.println("Could not find station! Try from the beginning.");
+        System.out.println("Could not find station! Try from again the beginning.");
         return null;
     }
 }
