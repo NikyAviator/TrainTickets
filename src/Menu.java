@@ -86,7 +86,7 @@ public class Menu {
         String destinationString = stations.getStation(destination);
         System.out.println(destinationString);
         //we call the first constructor and pass our depature and destination as a String. (a new instance of class
-        //Ticket called ticket.
+        //Ticket called ticket).
         Ticket ticket = new Ticket(departureString, destinationString);
         //we return the ticket.
         return ticket;
@@ -140,6 +140,7 @@ public class Menu {
         int moneyInput = input.nextInt();
         System.out.println("Ditt saldo är: " + moneyInput + " kr.");
         System.out.println("Priset för biljetterna är: " + ticket.getTotalPrice() + " kr.");
+        //we serialize the ticket after a successful payment
         boolean b = filehandler.serializeTicket(ticket);
         if (moneyInput >= (ticket.getTotalPrice())) {
             System.out.println("Pengar tillbaka: " + (moneyInput - ticket.getTotalPrice()) + " kr.");
