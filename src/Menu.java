@@ -87,7 +87,8 @@ public class Menu {
         if (departureString == null) {
             return null;
         }
-        System.out.println(departureString);
+        // we print our depature station (if it is valid)
+        System.out.println("Avgång: " + departureString);
         System.out.println("Välj destination (ange siffra och tryck ENTER): ");
         stations.printStations();
         int destination = input.nextInt();
@@ -95,7 +96,7 @@ public class Menu {
         if (destinationString == null) {
             return null;
         }
-        System.out.println(destinationString);
+        System.out.println("Destination: " + destinationString);
         // we call the first constructor and pass our departure and destination as a String. (a new instance of class
         // Ticket called ticket).
         Ticket ticket = new Ticket(departureString, destinationString);
@@ -104,7 +105,7 @@ public class Menu {
     }
 
     /**
-        a method that adds user that wants to travel.
+        A method that adds user that wants to travel.
         First it keeps looping depending on how many travelers we input in the console.
         A switch sends the value of 'vuxen', 'barn' etc and return the cost for those types of travelers.
         We receive the new ticket as a parameter, where we want to save our travelers.
@@ -141,7 +142,7 @@ public class Menu {
     }
 
     /**
-        this method handles the payment. we put in our money through moneyInput.
+        This method handles the payment. we put in our money through moneyInput.
         The if-logic handles, if we put in more money than the cost, then we get back the difference.
         If we put in too little money we get a prompt that we put in too little money, the user gets back
         his/hers money, and we get another chance to retry (we call the payment method again).

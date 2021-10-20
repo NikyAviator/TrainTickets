@@ -26,7 +26,7 @@ public class Ticket implements Serializable{
         this.pension = 0;
     }
 
-    //constructor that is used to get the ticket prices
+    // constructor that is used to get the ticket prices
     public Ticket() {
         this.adultPrice = 50;
         this.kidPrice = 30;
@@ -35,12 +35,12 @@ public class Ticket implements Serializable{
 
     }
 
-    //a getter to getTotalPrice of tickets
+    // a getter to getTotalPrice of tickets
     public double getTotalPrice() {
         return totalPrice;
     }
 
-    //a simple method that displays costs for traveling
+    // a simple method that displays costs for traveling
     public void ticketCost() {
         System.out.println("Priserna är för Skåne, för CPH tillkommer ett tillägg!");
         System.out.println("Vuxen pris: " + adultPrice + " kr.");
@@ -49,10 +49,11 @@ public class Ticket implements Serializable{
         System.out.println("Tillägg för CPH, pris: " + cphPrice + " kr.");
     }
 
-    //a method that sets price depending on what we chose of being, ie: "vuxen", "barn" etc.
-    //We also write an if-logic that checks if either our departure or destination is CPH,
-    // then we add an extraPrice (10kr).
-    //It prints the total cost for our trip
+    /** A method that sets price depending on what we chose of being, ie: "vuxen", "barn" etc.
+        We also write an if-logic that checks if either our departure or destination is CPH,
+        then we add an extraPrice (10kr).
+        It prints the total cost for our trip
+     */
     public void setTotalPrice(String travelerType) {
         double extraPrice = 0;
         if (avgang.equals("Köpenhamn C") || destination.equals("Köpenhamn C")) {
@@ -71,7 +72,9 @@ public class Ticket implements Serializable{
         System.out.println("Total priset är: " + totalPrice + " kr.");
     }
 
-    //Returns string representation from the ticket object. (This is our receipt)
+     /**
+      Returns string representation from the ticket object. (This is our receipt)
+     */
     @Override
     public String toString() {
         return "KVITTO: {" +
