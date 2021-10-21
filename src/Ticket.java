@@ -79,12 +79,11 @@ public class Ticket implements Serializable {
      */
     @Override
     public String toString() {
-        return "KVITTO: {" +
-                " Avgång = '" + avgang + '\'' +
-                ", Destination = '" + destination + '\'' +
-                ", TOTAL PRIS = " + totalPrice + " kr" +
+        return "KVITTO: " +
+                " \nAvgång = '" + avgang + '\'' +
+                " \nDestination = '" + destination + '\'' +
+                " \nTOTAL PRIS = " + totalPrice + " kr" +
                 ". Antal barn: " + barn + ". Antal vuxna: " + vuxen +
-                ". Antal pensionärer: " + pension +
-                '}';
+                ". Antal pensionärer: " + pension;
     }
 }
