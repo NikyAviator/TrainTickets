@@ -1,4 +1,5 @@
 KVITTO:  
-Avgång = 'Hjärup' 
-Destination = 'Lund C' 
-TOTAL PRIS = 50.0 kr. Antal barn: 0. Antal vuxna: 1. Antal pensionärer: 0
+Avgång = 'Köpenhamn C' 
+Destination = 'Ystad' 
+TOTAL PRIS = 130.0 kr. 
+Antal barn: 1. Antal vuxna: 1. Antal pensionärer: 1.

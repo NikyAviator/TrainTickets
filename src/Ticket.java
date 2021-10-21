@@ -83,7 +83,7 @@ public class Ticket implements Serializable {
                 " \nAvgång = '" + avgang + '\'' +
                 " \nDestination = '" + destination + '\'' +
                 " \nTOTAL PRIS = " + totalPrice + " kr" +
-                ". Antal barn: " + barn + ". Antal vuxna: " + vuxen +
-                ". Antal pensionärer: " + pension;
+                ". \nAntal barn: " + barn + ". Antal vuxna: " + vuxen +
+                ". Antal pensionärer: " + pension + ".";
     }
 }
