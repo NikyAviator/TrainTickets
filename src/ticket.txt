@@ -1,0 +1,1 @@
+KVITTO: { Avgång = 'Hässleholm C', Destination = 'Ystad', TOTAL PRIS = 80.0 kr. Antal barn: 1. Antal vuxna: 1. Antal pensionärer: 0}

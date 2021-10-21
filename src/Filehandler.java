@@ -1,4 +1,8 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -10,11 +14,10 @@ public class Filehandler {
     private ArrayList<String> avgangar;
 
     /**
-    First we create two ArrayLists for our 'stations' + 'avgangar'.
-    We create two Bufferreaders (reader) that will read from our two text files: avgangar and stationer
-    We embrace both readers with try-catch.
-    We also close the readers when their job is done.
-
+     * First we create two ArrayLists for our 'stations' + 'avgangar'.
+     * We create two Bufferreaders (reader) that will read from our two text files: avgangar and stationer
+     * We embrace both readers with try-catch.
+     * We also close the readers when their job is done.
      */
     public Filehandler() {
         stations = new ArrayList<>();
@@ -45,49 +48,35 @@ public class Filehandler {
         }
     }
 
-    /** method that writes our ticket to a file (our ticket that we created from the Ticket class)
-    a boolean returns true if no problem, false if there are problems.
-    Output stream is used to write the data to a file*/
+    /**
+     * method that writes our ticket to a file (our ticket that we created from the Ticket class)
+     * a boolean returns true if no problem, false if there are problems.
+     */
 
-    public boolean serializeTicket(Ticket ticket) {
+    public boolean writeTicket(Ticket ticket) {
         try {
-            Path path = Paths.get("src/serialized_tickets.txt");
-            ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(path));
-            //writes an object instead of only pure text
-            out.writeObject(ticket);
-            out.close();
-
+            Path path = Paths.get("src/ticket.txt");
+            Files.writeString(path, new String(ticket.toString()));
             return true;
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
+        } catch (java.io.IOException ioe) {
+            return false;
         }
-        return false;
+
     }
 
-    /** method that decodes the text file into a ticket object, this is our 'kvitto' (receipt)
-        Input stream is used to read the data from the source file
-        I used the slides for FileInputStream and ObjectoutputStream and wrapped them in a try catch.
+    /**
+     * A method that reads the ticket.txt file into the console.
+     * Also the method returns a ticket.
      */
-    public Ticket deserializeTicket() {
-        try {
-            FileInputStream fileIn = new FileInputStream("src/serialized_tickets.txt");
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            //we read the object ticket and further down we 'sout' it to a 'toString'
-            Ticket ticket = (Ticket) in.readObject();
-            in.close();
-            fileIn.close();
-            //We print the content of the ticket object.
-            System.out.println(ticket.toString());
-            return ticket;
-        } catch (FileNotFoundException fne) {
-            return null;
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
 
-            return null;
-        } catch (ClassNotFoundException cnfe) {
-            System.out.println("Ticket class not found");
-            cnfe.printStackTrace();
+    public Ticket readTicket() {
+        try {
+            byte[] bytes = Files.readAllBytes(Path.of("src/ticket.txt"));
+            String ticketData = new String(bytes, StandardCharsets.UTF_8);
+            Ticket ticket = new Ticket();
+            System.out.println(ticketData);
+            return ticket;
+        } catch (java.io.IOException ioe) {
             return null;
         }
     }

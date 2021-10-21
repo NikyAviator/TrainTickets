@@ -43,7 +43,7 @@ public class Menu {
                 break;
             case 2:
                 //we call the method that reads the ticket that has been saved to the file.
-                filehandler.deserializeTicket();
+                filehandler.readTicket();
                 //we call the menu() after we have looked at our ticket
                 menu();
                 break;
@@ -69,9 +69,9 @@ public class Menu {
     }
 
     /**
-    A method that we can choose our departure and arrival from.
-    We create a new ticket (sending departureString and destinationString as parameters) and we return our ticket,
-    where we are departing and arriving.
+     * A method that we can choose our departure and arrival from.
+     * We create a new ticket (sending departureString and destinationString as parameters) and we return our ticket,
+     * where we are departing and arriving.
      */
 
     // We create a method called searchTrip() that returns instance of class Ticket.
@@ -83,7 +83,7 @@ public class Menu {
         int departure = input.nextInt();
         // we create a and save a string that is compared to the number we send as an argument to the getStation method
         String departureString = stations.getStation(departure);
-        // if our depatureString is out of bounds we return null to our ticket object;
+        // if our departureString is out of bounds we return null to our ticket object;
         if (departureString == null) {
             return null;
         }
@@ -105,10 +105,10 @@ public class Menu {
     }
 
     /**
-        A method that adds user that wants to travel.
-        First it keeps looping depending on how many travelers we input in the console.
-        A switch sends the value of 'vuxen', 'barn' etc and return the cost for those types of travelers.
-        We receive the new ticket as a parameter, where we want to save our travelers.
+     * A method that adds user that wants to travel.
+     * First it keeps looping depending on how many travelers we input in the console.
+     * A switch sends the value of 'vuxen', 'barn' etc and return the cost for those types of travelers.
+     * We receive the new ticket as a parameter, where we want to save our travelers.
      */
     public void userAddTraveler(Ticket ticket) {
         System.out.println("Hur många skall resa?");
@@ -142,10 +142,10 @@ public class Menu {
     }
 
     /**
-        This method handles the payment. we put in our money through moneyInput.
-        The if-logic handles, if we put in more money than the cost, then we get back the difference.
-        If we put in too little money we get a prompt that we put in too little money, the user gets back
-        his/hers money, and we get another chance to retry (we call the payment method again).
+     * This method handles the payment. we put in our money through moneyInput.
+     * The if-logic handles, if we put in more money than the cost, then we get back the difference.
+     * If we put in too little money we get a prompt that we put in too little money, the user gets back
+     * his/hers money, and we get another chance to retry (we call the payment method again).
      */
     public void payment(Ticket ticket) {
         System.out.println("För in pengar i automaten för betalning: ");
@@ -153,7 +153,8 @@ public class Menu {
         System.out.println("Ditt saldo är: " + moneyInput + " kr.");
         System.out.println("Priset för biljetterna är: " + ticket.getTotalPrice() + " kr.");
         //we serialize the ticket after a successful payment
-        boolean b = filehandler.serializeTicket(ticket);
+        //boolean b = filehandler.serializeTicket(ticket);
+        filehandler.writeTicket(ticket);
         if (moneyInput >= (ticket.getTotalPrice())) {
             System.out.println("Pengar tillbaka: " + (moneyInput - ticket.getTotalPrice()) + " kr.");
         } else {

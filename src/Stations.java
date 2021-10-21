@@ -24,9 +24,9 @@ public class Stations {
     // a method that returns a String of the station that we chose as a number
     public String getStation(int stationIndex) {
         // corrected stationIndex
-        int stationCorrectedIndex = stationIndex -1;
+        int stationCorrectedIndex = stationIndex - 1;
         // we check the if the station indexes are 'normal' values, if not we return null and a message.
-        boolean stationWithinBounds = ((stationCorrectedIndex ) < stations.size() && (stationCorrectedIndex) >= 0);
+        boolean stationWithinBounds = ((stationCorrectedIndex) < stations.size() && (stationCorrectedIndex) >= 0);
         if (stationWithinBounds) {
             return stations.get(stationCorrectedIndex);
         } else {

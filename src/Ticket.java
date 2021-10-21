@@ -1,6 +1,7 @@
 import java.io.Serializable;
+
 //Ticket class handles the costs, types of people traveling, departure and destination.
-public class Ticket implements Serializable{
+public class Ticket implements Serializable {
     private double adultPrice;
     private double kidPrice;
     private double seniorPrice;
@@ -49,10 +50,11 @@ public class Ticket implements Serializable{
         System.out.println("Tillägg för CPH, pris: " + cphPrice + " kr.");
     }
 
-    /** A method that sets price depending on what we chose of being, ie: "vuxen", "barn" etc.
-        We also write an if-logic that checks if either our departure or destination is CPH,
-        then we add an extraPrice (10kr).
-        It prints the total cost for our trip
+    /**
+     * A method that sets price depending on what we chose of being, ie: "vuxen", "barn" etc.
+     * We also write an if-logic that checks if either our departure or destination is CPH,
+     * then we add an extraPrice (10kr).
+     * It prints the total cost for our trip
      */
     public void setTotalPrice(String travelerType) {
         double extraPrice = 0;
@@ -72,15 +74,15 @@ public class Ticket implements Serializable{
         System.out.println("Total priset är: " + totalPrice + " kr.");
     }
 
-     /**
-      Returns string representation from the ticket object. (This is our receipt)
+    /**
+     * Returns string representation from the ticket object. (This is our receipt)
      */
     @Override
     public String toString() {
         return "KVITTO: {" +
                 " Avgång = '" + avgang + '\'' +
                 ", Destination = '" + destination + '\'' +
-                ", TOTAL PRIS = " + totalPrice +" kr" +
+                ", TOTAL PRIS = " + totalPrice + " kr" +
                 ". Antal barn: " + barn + ". Antal vuxna: " + vuxen +
                 ". Antal pensionärer: " + pension +
                 '}';
